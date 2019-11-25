@@ -5,18 +5,18 @@ window.rollDice = ()=>{
   }
   const max = 6;
   const roll = Math.ceil(Math.random() * max);
-  document.getElementById("demo").innerHTML = players.name + " you rolled   " + roll;
+  document.getElementById("demo").innerHTML = players.name + ", you rolled   " + roll;
   let currentPlayer = players[currentPlayerTurn];
   currentPlayer.position += roll;
   ladders.forEach(ladder=>{
     if (ladder.start === currentPlayer.position) {
-      document.getElementById("demo").innerHTML = "You stepped on a ladder!";
+      window.alert ("You stepped on a ladder!");
       currentPlayer.position = ladder.end;
     }
   });
 
   if (currentPlayer.position === position) {
-    document.getElementById("demo").innerHTML = "Player has won!";
+    window.alert ("Player has won!");
     hasWon = true;
   }
   if (currentPlayer.position === position) {
